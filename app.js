@@ -9,6 +9,15 @@ const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
 // time.
 const TOKEN_PATH = 'token.json';
 
+const everydayTasks = [
+    '5 min stretches',
+    '5 min cleaning',
+    'Face exercises',
+    'Planche dips',
+    'Deep breathing',
+    'Brush'
+];
+
 // Load client secrets from a local file.
 fs.readFile('credentials.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
@@ -87,8 +96,8 @@ function listEvents(auth) {
       console.log('Upcoming 10 events:');
       events.map((event, i) => {
         const start = event.start.dateTime || event.start.date;
-        console.log(`${start} - ${event.summary}`);
-        eventsarray.push (`${start} - ${event.summary}`);
+        console.log(`${start}`);
+        eventsarray.push (`${start}`);
       });
     } else {
       console.log('No upcoming events found.');
